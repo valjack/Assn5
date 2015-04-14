@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Valerie Jackson Assignment 5</title>
+    <link rel="stylesheet" type="text/css" href="styles/Assignment5.css" />
+    <script src="js/Assignment5.js"></script>
+</head>
+
+<body>
+    <section id="title">
+    <h1>Valerie Jackson Assignment 5</h1>
+    <hr width="600px"; align="left">
+        
+        <select onchange="MenuChoice()" id="menu">
+            <option>Please select the list to display</option>
+            <option>Show Customers</option>
+            <option>Show Order History</option>
+            <option>Show Order for Customer</option>
+        </select>
+        
+    <hr width="600px"; align="left" >
+    </section>
+    
+    <section id="section1" class="section1">
+    
+    <label>Display Customer List</label>
+    <br>
+        
+    <button onclick="getAllCustomersList()"id="customers">Display Customers</button>
+    <hr width="600px"; align="left" >
+    <br>
+    <p id="customerlist">This is where the customer list will be displayed.</p>
+    
+    </section> 
+    
+    <br>
+    
+    <section id="section2" class="section2">
+    <hr width="600px"; align="left" >
+    <label>Enter the Customer Id</label>
+    <input type="text" id="customerid">
+    <br>
+        
+    <button onclick="getCustOrderHistory()" id="orderhistory">Display Customer Order History</button>
+    <hr width="600px"; align="left" >
+    <br>
+    <label id="custorderhistory">Display the customer's order history here</label>
+    
+    </section>
+    
+   
+    <br>
+        
+    <section id="section3" class="section3">
+    <hr width="600px"; align="left" >
+    <label>Enter Customer Id to View Orders Placed by Customer</label>
+    <input type="number" id="customerid">
+    <br>
+        
+    <button onclick="getOrdersForCust()" id="custorder">Display Orders for Customer</button>
+    <hr width="600px"; align="left" >
+    <br>
+    <label id="customerorder">Display the customer's orders here</label>
+    
+    </section>
+
+
+
+</body>
+</html>
