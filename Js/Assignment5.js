@@ -77,15 +77,16 @@ function GenerateOutput(result)
 }
 
 function getCustOrderHistory()
+
 {
    var objRequest = new XMLHttpRequest(); //Create AJAX request object
 
     //Create URL and Query string
     var url = "http://bus-pluto.ad.uab.edu/jsonwebservice/service1.svc/getCustomerOrderHistory/";
-    url += document.getElementById("customerid").innerHTML = objRequest;
+    url += document.getElementById("customerid").value;
     
-
-    
+    document.getElementById("custorderhistory").innerHTML = objRequest;
+        
     //Checks that the object has returned data
     objRequest.onreadystatechange = function()
     {
@@ -97,28 +98,27 @@ function getCustOrderHistory()
     }
     //Initiate the server request
     objRequest.open("GET",url,true);
-    objRequest.send();   
+    objRequest.send();
 }
-function GenerateHistory(result)
+function GenerateHistory(object)
 {
     var count = 0;
-    for (count=0; count < custorderhistory;count++);
     var displaytext = "<table><tr><th>Product Name</th><th>Total Product Quantity Ordered</th></tr>";
     
     //Loop to extract data from the response object
-    for(count=0;count<result.getCustomersOrderHistory.length;count++)
+    for(count=0;count<object.length;count++)
     
     {
-       displaytext += "<tr><td>" + result.getCustomersOrderHistory[count].ProductName + 
-       "</td><td>" + result.getCustomersOrderHistory[count].Total +"</td></tr>";
+       displaytext += "<tr><td>" + object[count].ProductName + 
+       "</td><td>" + object[count].Total +"</td></tr>";
     }
     
     document.getElementById("custorderhistory").innerHTML = displaytext;
-        for (count=0; count < custorderhistory;count++)
+        for(count=0; count < custorderhistory;count++)
     {
     }
-    result+="</table>";
-    document.getElementById("displaytext").innerHTML=result
+    object+="</table>";
+    document.getElementById("displaytext").innerHTML=object;
 }
 
 function getOrdersForCust()
@@ -150,7 +150,7 @@ function getOrdersForCust()
 function GenerateCustOrd(result)
 {
     var count = 0;
-    for (count=0; count <customerorder;count++);
+    
     var displaytext = "<table><tr><th>Order ID</th><th>Shipping Address</th><th>Shipping City</th><th>Shipping Name</th><th>Shipping Postal Code</th></tr>";   
     
     //Loop to extract data from the response object
